@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugzilla - Master Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#101820',
+                        secondary: '#FEE715',
+                        accent: '#3D5A80',
+                        light: '#F0F4F8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .feature-card:hover {
+            transform: translateY(-0.5rem);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .slide-in { animation: slideIn 0.5s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in { animation: fadeIn 1s ease-out; }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .cursor {
+            animation: blink 1s infinite;
+        }
+        .code-line {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .code-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dashboard-card {
+            transition: all 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(254, 231, 21, 0.1), 0 4px 6px -2px rgba(254, 231, 21, 0.05);
+        }
+        .code-window {
+            background-color: #1E1E1E;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .window-bar {
+            background-color: #323233;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .window-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .close { background-color: #FF5F56; }
+        .minimize { background-color: #FFBD2E; }
+        .maximize { background-color: #27C93F; }
+        .code-content {
+            padding: 16px;
+            font-family: monospace;
+        }
+        .line { margin-bottom: 8px; }
+        .comment { color: #6A9955; }
+        .keyword { color: #569CD6; }
+        .string { color: #CE9178; }
+        .number { color: #B5CEA8; }
+    </style>
+</head>
+<body class="font-sans text-primary bg-light">
+    <!-- Header -->
+    <header class="bg-primary text-light sticky top-0 z-50 transition-all duration-300" id="header">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-secondary">Debugzilla</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-secondary transition">Home</a>
+                <a href="#features" class="hover:text-secondary transition">Features</a>
+                <a href="#courses" class="hover:text-secondary transition">Courses</a>
+                <a href="#dashboard" class="hover:text-secondary transition">Dashboard</a>
+                <a href="#testimonials" class="hover:text-secondary transition">Testimonials</a>
+                <a href="#contact" class="hover:text-secondary transition">Contact</a>
+            </div>
+            <button class="md:hidden text-3xl">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-light py-20 min-h-screen flex items-center">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 slide-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Master Web Development with Debugzilla</h1>
+                <p class="text-xl mb-6">From Beginner to Pro in Record Time. Learn Python, Django, and Flask while building real-world projects.</p>
+                <button class="bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 transform hover:scale-105 pulse">
+                    Start Your Journey
+                </button>
+            </div>
+            <div class="md:w-1/2">
+                <div class="code-window w-full max-w-md mx-auto">
+                    <div class="window-bar">
+                        <div class="window-button close"></div>
+                        <div class="window-button minimize"></div>
+                        <div class="window-button maximize"></div>
+                    </div>
+                    <div class="code-content text-sm">
+                        <div class="line"><span class="comment"># Welcome to Debugzilla</span></div>
+                        <div class="line"><span class="keyword">class</span> <span class="string">Debugzilla</span>:</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="string">__init__</span>(self):</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.courses = [<span class="string">"Python"</span>, <span class="string">"Django"</span>, <span class="string">"Flask"</span>]</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.projects = <span class="number">10</span></div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.success_rate = <span class="number">0.95</span></div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="string">start_learning</span>(self):</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Welcome to Debugzilla!"</span>)</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> course <span class="keyword">in</span> self.courses:</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">f"Learning {course}..."</span>)</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"You're now a web dev pro!"</span>)</div>
+                        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <div class="line">debugzilla = Debugzilla()</div>
+                        <div class="line">debugzilla.start_learning()</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-light">Why Choose Debugzilla?</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="featuresGrid">
+                <!-- Features will be dynamically inserted here -->
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-lg font-semibold text-primary mb-4">
+                    Ready to start your coding journey? Join Debugzilla today!
+                </p>
+                <button class="bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
+                    Get Started Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const features = [
+            {
+                title: "Debugzilla Dashboard",
+                description: "Your central hub for learning and progress tracking",
+                icon: "layout-dashboard",
+                items: ["Progress Overview", "Skill Analytics", "Learning Path"]
+            },
+            {
+                title: "Interactive Learning",
+                description: "Engage with course materials and fellow learners",
+                icon: "book-open",
+                items: ["Enrolled Courses", "Assignments", "Quizzes", "Code Challenges"]
+            },
+            {
+                title: "Community Collaboration",
+                description: "Connect and learn with peers and instructors",
+                icon: "users",
+                items: ["Discussion Forums", "Peer Code Reviews", "Study Groups"]
+            },
+            {
+                title: "Live Support",
+                description: "Get help when you need it most",
+                icon: "message-square",
+                items: ["Ask Questions", "1-on-1 Mentoring", "Live Chat Support"]
+            },
+            {
+                title: "Interactive Sessions",
+                description: "Participate in real-time learning experiences",
+                icon: "video",
+                items: ["Live Coding Sessions", "Webinars", "Virtual Workshops"]
+            },
+            {
+                title: "Learning Resources",
+                description: "Access a wealth of supplementary materials",
+                icon: "help-circle",
+                items: ["Documentation", "Tutorials", "Best Practices Guides"]
+            },
+            {
+                title: "Progress Tracking",
+                description: "Monitor your learning journey",
+                icon: "clipboard-list",
+                items: ["Attendance Records", "Assignment Grades", "Certification Progress"]
+            },
+            {
+                title: "Personalization",
+                description: "Tailor your learning experience",
+                icon: "user-circle",
+                items: ["Profile Customization", "Learning Preferences", "Goal Setting"]
+            }
+        ];
+
+        const featuresGrid = document.getElementById('featuresGrid');
+
+        features.forEach((feature, index) => {
+            const featureCard = document.createElement('div');
+            featureCard.className = 'bg-white shadow-lg hover:shadow-xl transition duration-300 rounded-lg overflow-hidden feature-card';
+            featureCard.innerHTML = `
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-2xl font-semibold text-primary mb-4">
+                        <i data-lucide="${feature.icon}" class="h-6 w-6"></i>
+                        ${feature.title}
+                    </div>
+                    <p class="text-gray-600 mb-4">${feature.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${feature.items.map(item => `
+                            <span class="inline-block bg-secondary bg-opacity-10 text-primary text-sm px-2 py-1 rounded-full">
+                                ${item}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            featuresGrid.appendChild(featureCard);
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+    <section id="courses" class="py-20 bg-primary text-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-light">Our Comprehensive Courses</h2>
+            <div id="coursesGrid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Course cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const courses = [
+            {
+                title: "Web Development Basics",
+                description: "Learn HTML, CSS, and JavaScript to build responsive websites.",
+                icon: "layout-dashboard",
+                topics: ["HTML5 Structure", "CSS3 Styling", "JavaScript Basics"]
+            },
+            {
+                title: "Python Fundamentals",
+                description: "Master the basics of Python programming language.",
+                icon: "book-open",
+                topics: ["Data Types & Variables", "Control Structures", "Functions & Modules"]
+            },
+            {
+                title: "Django Web Development",
+                description: "Build powerful web applications with Django framework.",
+                icon: "users",
+                topics: ["MVC Architecture", "Database Integration", "RESTful API Design"]
+            },
+            {
+                title: "Flask Microframework",
+                description: "Create lightweight web applications with Flask.",
+                icon: "message-square",
+                topics: ["Routing & Views", "Template Engine", "Flask Extensions"]
+            },
+            {
+                title: "Database Management",
+                description: "Learn SQL and database design principles.",
+                icon: "database",
+                topics: ["SQL Fundamentals", "Database Normalization", "Query Optimization"]
+            },
+            {
+                title: "Version Control with Git",
+                description: "Master Git for effective collaboration and code management.",
+                icon: "git-branch",
+                topics: ["Basic Git Commands", "Branching Strategies", "Collaborative Workflows"]
+            }
+        ];
+
+        const coursesGrid = document.getElementById('coursesGrid');
+
+        courses.forEach((course, index) => {
+            const courseCard = document.createElement('div');
+            courseCard.className = 'course-card bg-primary border border-secondary border-opacity-20 rounded-lg overflow-hidden';
+            courseCard.innerHTML = `
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-2xl font-semibold text-light mb-4">
+                        <i data-lucide="${course.icon}" class="h-6 w-6"></i>
+                        ${course.title}
+                    </div>
+                    <p class="text-gray-300 mb-4">${course.description}</p>
+                    <div class="space-y-2">
+                        ${course.topics.map((topic, topicIndex) => `
+                            <div class="flex items-center">
+                                <span class="inline-flex items-center justify-center w-6 h-6 mr-2 text-xs font-semibold text-primary bg-secondary rounded-full">
+                                    ${topicIndex + 1}
+                                </span>
+                                <span class="text-gray-300">${topic}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <a href="#" class="inline-flex items-center mt-4 text-secondary hover:text-secondary-600 transition-colors duration-200">
+                        Learn more
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            `;
+            coursesGrid.appendChild(courseCard);
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+    <section id="dashboard" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary">Your Learning Dashboard</h2>
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+                <div class="lg:w-2/3 bg-gray-800 p-6 rounded-lg shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="dashboard-card bg-gray-700 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Course Progress</h4>
+                            <div class="flex items-center justify-between">
+                                <div class="text-3xl font-bold">75%</div>
+                                <i data-lucide="trending-up" class="text-green-400"></i>
+                            </div>
+                            <div class="mt-2 bg-gray-600 h-2 rounded-full">
+                                <div class="bg-secondary h-full rounded-full" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="dashboard-card bg-gray-700 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Upcoming Sessions</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i data-lucide="calendar" class="mr-2 text-secondary"></i>
+                                    <span>Advanced Python - Today, 3 PM</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-lucide="calendar" class="mr-2 text-secondary"></i>
+                                    <span>Web Dev Basics - Tomorrow, 2 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dashboard-card bg-gray-700 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Coding Streak</h4>
+                            <div class="flex items-center justify-between">
+                                <div class="text-3xl font-bold">7 Days</div>
+                                <i data-lucide="flame" class="text-orange-400"></i>
+                            </div>
+                            <p class="mt-2">Keep it up! You're on fire!</p>
+                        </div>
+                        <div class="dashboard-card bg-gray-700 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Recent Achievements</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i data-lucide="award" class="mr-2 text-secondary"></i>
+                                    <span>Python Mastery Badge</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-lucide="award" class="mr-2 text-secondary"></i>
+                                    <span>10 Day Streak Trophy</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dashboard-card bg-gray-700 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Learning Path</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i data-lucide="check-circle" class="mr-2 text-green-400"></i>
+                                    <span>Python Basics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-lucide="circle" class="mr-2 text-secondary"></i>
+                                    <span>Advanced Python</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i data-lucide="circle" class="mr-2 text-gray-400"></i>
+                                    <span>Django Framework</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dashboard-card bg-gray-700 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Community Activity</h4>
+                            <div class="flex items-center justify-between mb-2">
+                                <span>Forum Posts</span>
+                                <span class="font-semibold">23</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>Code Reviews</span>
+                                <span class="font-semibold">7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 space-y-4 text-light">
+                    <h3 class="text-2xl font-semibold text-secondary">Everything You Need in One Place</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Track your progress across all courses
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Access course materials and resources
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Interact with instructors and peers
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Schedule live coding sessions
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Set and track personal learning goals
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Explore career opportunities and resources
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Engage in peer-to-peer learning
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            Participate in coding challenges
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary">Experience Live Coding Sessions</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8 mt-5 p-4 pt-8">
+                <div class="md:w-1/2 space-y-4">
+                    <h3 class="text-2xl font-semibold text-secondary">Learn from Industry Experts</h3>
+                    <p class="text-gray-300">Join our interactive live coding sessions where you can:</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            <span class="text-gray-300">Watch real-time problem-solving</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            <span class="text-gray-300">Ask questions and get immediate answers</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-secondary"></i>
+                            <span class="text-gray-300">Collaborate with peers on coding challenges</span>
+                        </li>
+                    </ul>
+                    <button class="mt-4 bg-secondary text-primary font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300">
+                        Join Next Session
+                    </button>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-gray-400 text-sm">Live Coding Session</div>
+                        </div>
+                        <div id="codeEditor" class="font-mono text-sm">
+                            <div class="code-line"><span class="text-blue-400">def</span> <span class="text-green-400">fibonacci</span>(n):</div>
+                            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">if</span> n <= 1:</div>
+                            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">return</span> n</div>
+                            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">else</span>:</div>
+                            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">return</span> fibonacci(n-1) + fibonacci(n-2)</div>
+                            <div class="code-line"></div>
+                            <div class="code-line"><span class="text-green-400">result</span> = fibonacci(10)</div>
+                            <div class="code-line"><span class="text-blue-400">print</span>(<span class="text-yellow-300">"The 10th Fibonacci number is:"</span>, result)</div>
+                            <div class="code-line cursor">|</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Function to animate code appearance
+        function animateCode() {
+            const codeLines = document.querySelectorAll('.code-line');
+            codeLines.forEach(line => line.classList.remove('visible'));
+            
+            let delay = 0;
+            codeLines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('visible');
+                }, delay);
+                delay += 200; // Increase delay for each line
+            });
+        }
+
+        // Initial animation
+        animateCode();
+
+        // Retype every 5 seconds
+        setInterval(animateCode, 5000);
+
+        // Animate code appearance on scroll view
+        window.addEventListener('scroll', () => {
+            const codeEditor = document.getElementById('codeEditor');
+            const rect = codeEditor.getBoundingClientRect();
+            const isVisible = (rect.top >= 0 && rect.bottom <= window.innerHeight);
+            
+            if (isVisible) {
+                animateCode();
+            }
+        });
+    </script>
+
+    <section id="testimonials" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary">What Our Students Say</h2>
+            <div id="testimonialSlider" class="relative overflow-hidden">
+                <div class="flex transition-transform duration-500 ease-in-out">
+                    <div class="w-full flex-shrink-0 p-4">
+                        <div class="testimonial-card bg-secondary bg-opacity-10 p-6 rounded-lg border border-secondary border-opacity-20">
+                            <i data-lucide="quote" class="w-8 h-8 text-secondary mb-4"></i>
+                            <p class="mb-4 text-gray-300">"Debugzilla transformed my coding journey. I went from a complete beginner to landing my dream job in just 6 months!"</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/60?img=1" alt="Sarah J." class="w-10 h-10 rounded-full mr-4">
+                                <div>
+                                    <p class="font-semibold text-secondary">Sarah J.</p>
+                                    <p class="text-sm text-gray-400">Software Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full flex-shrink-0 p-4">
+                        <div class="testimonial-card bg-secondary bg-opacity-10 p-6 rounded-lg border border-secondary border-opacity-20">
+                            <i data-lucide="quote" class="w-8 h-8 text-secondary mb-4"></i>
+                            <p class="mb-4 text-gray-300">"The hands-on approach and real-world projects at Debugzilla gave me the confidence to tackle any coding challenge."</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/60?img=2" alt="Mike T." class="w-10 h-10 rounded-full mr-4">
+                                <div>
+                                    <p class="font-semibold text-secondary">Mike T.</p>
+                                    <p class="text-sm text-gray-400">Full Stack Engineer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full flex-shrink-0 p-4">
+                        <div class="testimonial-card bg-secondary bg-opacity-10 p-6 rounded-lg border border-secondary border-opacity-20">
+                            <i data-lucide="quote" class="w-8 h-8 text-secondary mb-4"></i>
+                            <p class="mb-4 text-gray-300">"I've tried other coding bootcamps, but Debugzilla's curriculum and support are unmatched. It's been a game-changer for my career."</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/60?img=3" alt="Emily R." class="w-10 h-10 rounded-full mr-4">
+                                <div>
+                                    <p class="font-semibold text-secondary">Emily R.</p>
+                                    <p class="text-sm text-gray-400">Web Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button id="prevBtn" class="mx-2 p-2 bg-secondary text-primary rounded-full hover:bg-opacity-80 transition-colors duration-300">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button id="nextBtn" class="mx-2 p-2 bg-secondary text-primary rounded-full hover:bg-opacity-80 transition-colors duration-300">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Testimonial Slider
+        const testimonials = document.getElementById('testimonialSlider').firstElementChild;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function showSlide(index) {
+            testimonials.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        // Auto-advance testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }, 5000);
+    </script>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4">Ready to Start Your Coding Journey?</h2>
+            <p class="text-xl mb-8">Join Debugzilla today and transform your career in tech!</p>
+            <button class="bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 transform hover:scale-105 pulse">
+                Enroll Now
+            </button>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-primary text-light py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">Debugzilla</h3>
+                    <p>Your journey to mastering web development begins here.</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Courses</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-secondary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+                <p>&copy; 2023 Debugzilla. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('bg-opacity-90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('bg-opacity-90', 'backdrop-blur-md');
+            }
+        });
+
+
+        // Intersection Observer for fade-in animations
+        const fadeElems = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElems.forEach(elem => {
+            elem.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
+            observer.observe(elem);
+        });
+    </script>
+</body>
+</html>
