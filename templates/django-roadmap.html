@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Roadmap - Debugzilla</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#101820',
+                        secondary: '#FEE715',
+                        accent: '#3D5A80',
+                        light: '#F0F4F8',
+                        dark: '#1A202C',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-primary bg-dark">
+    <!-- Header -->
+    <header class="bg-primary text-light sticky top-0 z-50 transition-all duration-300" id="header">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-secondary">Debugzilla</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-secondary transition">Home</a>
+                <a href="#roadmap" class="hover:text-secondary transition">Roadmap</a>
+                <a href="#resources" class="hover:text-secondary transition">Resources</a>
+                <a href="#contact" class="hover:text-secondary transition">Contact</a>
+            </div>
+            <button class="md:hidden text-3xl">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-light py-10 min-h-[50vh] flex items-center">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Django Course Learning Roadmap</h1>
+            <p class="text-xl mb-6">Master Django within 2 months.</p>
+            <p class="text-lg mb-6">Pricing: $39/month</p>
+            <a href="/enroll">
+                <button class="bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 transform hover:scale-105 pulse">
+                    Get Started
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Here's what we will cover</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">1. Python Basics</h3>
+                    <p class="text-gray-300 mb-4">Master Python fundamentals.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Variables and Data Types</li>
+                        <li>Control Structures</li>
+                        <li>Functions and Modules</li>
+                        <li>Error Handling</li>
+                    </ul>
+                </div>
+                <!-- Step 2: Python Advanced -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">2. Advanced Python</h3>
+                    <p class="text-gray-300 mb-4">Build a strong Python foundation.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>OOP Concepts</li>
+                        <li>Decorators and Generators</li>
+                        <li>File Handling</li>
+                        <li>Regular Expressions</li>
+                    </ul>
+                </div>
+                <!-- Step 3: Setting Up Django -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">3. Setting Up Django</h3>
+                    <p class="text-gray-300 mb-4">Get Django ready for development.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Installing Django</li>
+                        <li>Creating a Project</li>
+                        <li>Understanding Project Structure</li>
+                        <li>Starting the Development Server</li>
+                    </ul>
+                </div>
+                <!-- Step 4: Creating Your First App -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">4. Creating Your First App</h3>
+                    <p class="text-gray-300 mb-4">Learn the basics of Django apps.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>What is a Django App?</li>
+                        <li>Creating an App</li>
+                        <li>Connecting App to Project</li>
+                        <li>URLs and Views</li>
+                    </ul>
+                </div>
+                <!-- Step 5: URLs and Views -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">5. URLs and Views</h3>
+                    <p class="text-gray-300 mb-4">Understand how Django handles requests.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Mapping URLs</li>
+                        <li>Function-Based Views</li>
+                        <li>Class-Based Views</li>
+                        <li>Template Rendering</li>
+                    </ul>
+                </div>
+                <!-- Step 6: Templates -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">6. Templates</h3>
+                    <p class="text-gray-300 mb-4">Create dynamic web pages with templates.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Template Syntax</li>
+                        <li>Context Data</li>
+                        <li>Template Inheritance</li>
+                        <li>Static Files</li>
+                    </ul>
+                </div>
+                <!-- Step 7: Models -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">7. Models</h3>
+                    <p class="text-gray-300 mb-4">Work with databases using Django Models.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Defining Models</li>
+                        <li>Understanding Fields</li>
+                        <li>Database Relationships</li>
+                        <li>Database Migrations</li>
+                    </ul>
+                </div>
+                <!-- Step 8: Admin Interface -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">8. Admin Interface</h3>
+                    <p class="text-gray-300 mb-4">Customize the Django Admin for data management.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Using the Django Admin</li>
+                        <li>Registering Models</li>
+                        <li>Customizing Admin Views</li>
+                        <li>Managing Data through Admin</li>
+                    </ul>
+                </div>
+                <!-- Step 9: Forms and Validation -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">9. Forms and Validation</h3>
+                    <p class="text-gray-300 mb-4">Learn how to handle forms and validate user input.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Creating Forms</li>
+                        <li>Form Validation</li>
+                        <li>Handling Form Submissions</li>
+                        <li>CSRF Protection</li>
+                    </ul>
+                </div>
+                <!-- Step 10: User Authentication -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">10. User Authentication</h3>
+                    <p class="text-gray-300 mb-4">Implement user authentication and authorization.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User Registration</li>
+                        <li>Login and Logout</li>
+                        <li>Reset Password</li>
+                        <li>Permission Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Django Projects - Beginner to Advanced</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Beginner Projects -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">1. To-Do App</h3>
+                    <p class="text-gray-300 mb-4">Build a simple task manager to add, edit, and delete tasks.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Task model with fields for title and status</li>
+                        <li>CRUD operations</li>
+                        <li>Basic form handling</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">2. Blog Application</h3>
+                    <p class="text-gray-300 mb-4">Create a platform for writing, editing, and reading blog posts.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Post model with title, content, and timestamp</li>
+                        <li>Admin interface customization</li>
+                        <li>Pagination for blog listing</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">3. Portfolio Website</h3>
+                    <p class="text-gray-300 mb-4">Showcase personal projects and achievements.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for projects, skills, and testimonials</li>
+                        <li>Responsive design with Bootstrap or Tailwind</li>
+                        <li>Static and dynamic content management</li>
+                    </ul>
+                </div>
+                <!-- Intermediate Projects -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">4. E-Commerce Website</h3>
+                    <p class="text-gray-300 mb-4">Build a shopping platform with cart and checkout features.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User authentication</li>
+                        <li>Product and category models</li>
+                        <li>Payment gateway integration</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">5. Online Polling System</h3>
+                    <p class="text-gray-300 mb-4">Create a system for users to create and vote on polls.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for polls and options</li>
+                        <li>Real-time results display</li>
+                        <li>Authentication for poll creators</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">6. Expense Tracker</h3>
+                    <p class="text-gray-300 mb-4">Monitor and categorize daily expenses.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for expenses, categories, and users</li>
+                        <li>Visualization with charts</li>
+                        <li>Filter and search functionality</li>
+                    </ul>
+                </div>
+                <!-- Advanced Projects -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">7. Learning Management System</h3>
+                    <p class="text-gray-300 mb-4">Design a system for managing courses and students.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for courses, lessons, and enrollments</li>
+                        <li>Role-based access for students and instructors</li>
+                        <li>Assessment and grading functionality</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">8. Social Media Platform</h3>
+                    <p class="text-gray-300 mb-4">Build a feature-rich social networking site.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User profiles and followers</li>
+                        <li>Post creation and interaction (likes/comments)</li>
+                        <li>Real-time notifications</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">9. AI-Powered Recruitment Platform</h3>
+                    <p class="text-gray-300 mb-4">Leverage AI for resume parsing and candidate ranking.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Document upload and parsing</li>
+                        <li>Skill matching and ranking</li>
+                        <li>ChatGPT integration for HR assistance</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">10. SaaS Dashboard</h3>
+                    <p class="text-gray-300 mb-4">Develop a SaaS platform with subscription and analytics.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User and organization management</li>
+                        <li>Billing and subscription</li>
+                        <li>Data visualization and reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary">Additional Resources</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Official Documentation</h3>
+                    <p class="text-gray-300 mb-4">The official Django documentation is the best place to start.</p>
+                    <a href="https://docs.djangoproject.com/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Visit Documentation</a>
+                </div>
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Django REST Framework</h3>
+                    <p class="text-gray-300 mb-4">Learn how to build APIs with Django REST Framework.</p>
+                    <a href="https://www.django-rest-framework.org/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Learn More</a>
+                </div>
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Django Packages</h3>
+                    <p class="text-gray-300 mb-4">Discover reusable apps, sites, tools, and more.</p>
+                    <a href="https://djangopackages.org/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Explore Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-light py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">Debugzilla</h3>
+                    <p>Your journey to mastering web development begins here.</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Courses</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-secondary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+                <p>&copy; 2023 Debugzilla. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('bg-opacity-90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('bg-opacity-90', 'backdrop-blur-md');
+            }
+        });
+    </script>
+</body>
+</html>

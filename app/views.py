@@ -62,4 +62,20 @@ def logout_view(request):
     messages.info(request, "You have successfully logged out.") 
     return redirect('login')
 
+def django_roadmap(request):
+    """
+    View function for the roadmap page.
+    """
+    return render(request, 'django-roadmap.html')
 
+def enroll_view(request):
+    """
+    View function for course enrollment.
+    """
+    if request.method == 'POST':
+        course_id = request.POST.get('course_id')
+            # Add logic to enroll the student in the course
+        messages.success(request, "You have been enrolled in the course.")
+        return redirect('student_dashboard')
+        
+    return render(request, 'enroll.html')
