@@ -7,7 +7,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('signup/', views.signup_view, name='signup'),
     path('logout/', views.logout_view, name='logout'),
-    path('django-roadmap/', views.django_roadmap, name='django_roadmap'),  # New URL pattern
+    path('django-web-development/', views.django_roadmap, name='django_roadmap'),  # New URL pattern
     path('enroll/', views.enroll_view, name='enroll'),
     
 ]
