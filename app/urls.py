@@ -9,5 +9,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('django-web-development/', views.django_roadmap, name='django_roadmap'),  # New URL pattern
     path('enroll/', views.enroll_view, name='enroll'),
+    path('web-basics-course/', views.web_basics_course, name='web_basics_course'),
     
 ]

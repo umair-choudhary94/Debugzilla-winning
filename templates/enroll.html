@@ -1,87 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Enrollment - Don't Miss Out!</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#101820',
-                        secondary: '#FEE715',
-                        accent: '#3D5A80',
-                        light: '#F0F4F8',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-        .hover-lift {
-            transition: transform 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-5px);
-        }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-primary to-accent font-sans text-light  flex items-center justify-center">
-    <div class="container mx-auto px-4 py-12 max-w-4xl bg-white bg-opacity-10 backdrop-blur-md rounded-3xl shadow-2xl mt-8">
+{% extends "base.html" %}
+{% block content %}
+    <div class="container mx-auto px-4 py-12 max-w-4xl bg-primary bg-opacity-10 backdrop-blur-md rounded-3xl shadow-2xl mt-8">
         <h1 class="text-4xl md:text-5xl font-bold mb-8 text-secondary text-center leading-tight">
             Your Journey to Success <br><span class="text-light">Starts Here!</span>
         </h1>
         <p class="text-xl text-center mb-12 text-light">Follow these simple steps to unlock your potential:</p>
         <ol class="space-y-8 list-none pl-0">
-            <li class="mb-6 bg-white bg-opacity-20 rounded-xl p-6 hover-lift">
+            <li class="mb-6 bg-primary bg-opacity-20 rounded-xl p-6 hover:shadow-xl transition duration-300 border border-secondary border-opacity-20">
                 <strong class="text-2xl text-secondary block mb-3">1. Hit the Enroll Button</strong>
                 <ul class="list-disc list-inside pl-4 space-y-2 text-light">
                     <li>Click the <strong class="text-secondary"><a href="https://wa.me/923437389594?text=I%20want%20to%20enroll%20into%20the%20course" target="_blank">Enroll Now</a></strong> button at the bottom.</li>
                     <li>You'll be instantly connected via WhatsApp.</li>
                 </ul>
             </li>
-            <li class="mb-6 bg-white bg-opacity-20 rounded-xl p-6 hover-lift">
+            <li class="mb-6 bg-primary bg-opacity-20 rounded-xl p-6 hover:shadow-xl transition duration-300 border border-secondary border-opacity-20">
                 <strong class="text-2xl text-secondary block mb-3">2. Provide Personal Details</strong>
                 <ul class="list-disc list-inside pl-4 space-y-2 text-light">
                     <li>Share your <strong>Full Name</strong>, <strong>Age</strong>, and <strong>Location</strong>.</li>
                     <li>It's quick, easy, and secure!</li>
                 </ul>
             </li>
-            <li class="mb-6 bg-white bg-opacity-20 rounded-xl p-6 hover-lift">
+            <li class="mb-6 bg-primary bg-opacity-20 rounded-xl p-6 hover:shadow-xl transition duration-300 border border-secondary border-opacity-20">
                 <strong class="text-2xl text-secondary block mb-3">3. Secure Your Spot</strong>
                 <ul class="list-disc list-inside pl-4 space-y-2 text-light">
                     <li>Complete the simple payment process.</li>
                     <li>We'll guide you through every step on WhatsApp.</li>
                 </ul>
             </li>
-            <li class="mb-6 bg-white bg-opacity-20 rounded-xl p-6 hover-lift">
+            <li class="mb-6 bg-primary bg-opacity-20 rounded-xl p-6 hover:shadow-xl transition duration-300 border border-secondary border-opacity-20">
                 <strong class="text-2xl text-secondary block mb-3">4. Access Your Personalized Dashboard</strong>
                 <ul class="list-disc list-inside pl-4 space-y-2 text-light">
                     <li>Receive your exclusive login credentials.</li>
                     <li>Track progress, access resources, and get live class notifications!</li>
                 </ul>
             </li>
-            <li class="mb-6 bg-white bg-opacity-20 rounded-xl p-6 hover-lift">
+            <li class="mb-6 bg-primary bg-opacity-20 rounded-xl p-6 hover:shadow-xl transition duration-300 border border-secondary border-opacity-20">
                 <strong class="text-2xl text-secondary block mb-3">5. Join Live Classes & Excel</strong>
                 <ul class="list-disc list-inside pl-4 space-y-2 text-light">
                     <li>Attend engaging sessions via Zoom or Google Meet.</li>
                     <li>Maintain 90% attendance to ensure your success!</li>
                 </ul>
             </li>
-            <li class="mb-6 bg-white bg-opacity-20 rounded-xl p-6 hover-lift">
+            <li class="mb-6 bg-primary bg-opacity-20 rounded-xl p-6 hover:shadow-xl transition duration-300 border border-secondary border-opacity-20">
                 <strong class="text-2xl text-secondary block mb-3">6. Earn Your Certificate</strong>
                 <ul class="list-disc list-inside pl-4 space-y-2 text-light">
                     <li>Complete the course requirements.</li>
@@ -98,5 +58,5 @@
         </div>
         <p class="text-center mt-6 text-light italic">Don't miss this opportunity to transform your future!</p>
     </div>
-</body>
-</html>
+
+{% endblock content %}

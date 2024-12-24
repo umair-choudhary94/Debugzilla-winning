@@ -79,3 +79,10 @@ def enroll_view(request):
         return redirect('student_dashboard')
         
     return render(request, 'enroll.html')
+
+def web_basics_course(request):
+    """
+    View function for the web basics course page.
+    """
+    return render(request, 'web-basics-course.html')
+
