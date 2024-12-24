@@ -113,3 +113,6 @@ def web_basics_course(request):
 
 def django_doc(request):
     return render(request,'django/base.html')
+
+def django_introduction(request):
+    return render(request,'django/django-intro.html')

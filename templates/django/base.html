@@ -1,12 +1,17 @@
 {% extends "base.html" %}
+
+
 {% block content %}
-    <div class="flex min-h-screen container mx-auto  mt-8">
-        <!-- Left Sidebar -->
-        <aside class="w-64 bg-primary text-light overflow-y-auto h-screen  ">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-light mb-8">Web Development</h3>
-                
-                        <nav>
+<div class="flex flex-col md:flex-row min-h-screen container mx-auto mt-8">
+    <!-- Sidebar for Desktop -->
+    <aside class="fixed md:relative md:w-1/4 lg:w-1/5 bg-primary text-light h-screen transform md:translate-x-0 translate-x-[-100%] transition-transform duration-300 z-10 overflow-y-auto"
+        id="sidebar">
+        <div class="p-4">
+            <button
+                class="block md:hidden text-primary p-2 rounded text-center text-sm font-bold mb-1 w-full bg-secondary border border-light mb-3"
+                id="closeSidebar">&times; Close</button>
+            <h3 class="text-xl font-bold text-light mb-8">Web Development</h3>
+            <nav>
                             <div class="mb-6">
                                 <h2 class="text-secondary mb-2 text-sm font-semibold">Django Basics</h2>
                                 <ul class="space-y-2">
@@ -135,56 +140,44 @@
                                 </ul>
                             </div>
                         </nav>
-                    
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="flex-1 ml-64 mr-64 h-screen overflow-y-auto">
-            <div class="max-w-4xl mx-auto px-8 py-12">
-                <div class="flex justify-between items-center mb-8">
-                    <button class="bg-primary text-light px-4 py-2 rounded hover:bg-opacity-90">← Previous</button>
-                    <button class="bg-primary text-light px-4 py-2 rounded hover:bg-opacity-90">Next →</button>
-                </div>
-
-                <article class="prose max-w-none">
-                    <h1 class="text-4xl font-bold text-primary mb-8">Getting Started with CSS</h1>
-                    
-                    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-                        <p class="text-lg text-accent mb-4">
-                            CSS (Cascading Style Sheets) is the language we use to style HTML documents. It describes how HTML elements should be displayed.
-                        </p>
-
-                        <h2 class="text-2xl font-bold text-primary mt-8 mb-4">Adding CSS to Your Project</h2>
-                        
-                        <div class="bg-gray-100 p-4 rounded-lg mb-6">
-                            <code class="text-primary">
-                                &lt;link rel="stylesheet" href="styles.css"&gt;
-                            </code>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-primary mt-6 mb-3">Three Ways to Insert CSS</h3>
-                        <ul class="list-disc list-inside space-y-2 text-accent">
-                            <li>External CSS</li>
-                            <li>Internal CSS</li>
-                            <li>Inline CSS</li>
-                        </ul>
-
-                        <div class="bg-secondary bg-opacity-10 border-l-4 border-secondary p-4 mt-6">
-                            <p class="text-primary"><strong>Pro Tip:</strong> External stylesheets are recommended for better maintainability and separation of concerns.</p>
-                        </div>
                     </div>
-                </article>
-
-                <div class="flex justify-between items-center mt-8">
-                    <button class="bg-primary text-light px-4 py-2 rounded hover:bg-opacity-90">← Previous</button>
-                    <button class="bg-primary text-light px-4 py-2 rounded hover:bg-opacity-90">Next →</button>
+                </aside>
+            
+                <!-- Main Content -->
+                <div class="flex-grow p-4 h-screen overflow-y-auto">
+                    <button
+                        class="block md:hidden text-light mb-4 px-4 py-2 bg-primary border border-secondary rounded"
+                        id="openSidebar">☰ All Topics</button>
+                    {% block subcontent %}{% endblock subcontent %}
+                </div>
+            
+                <!-- Right Section -->
+                <div class="hidden lg:block p-4 mx-3 lg:w-1/5 bg-primary">
+                    <div class="bg-primary border border-secondary shadow rounded-lg p-4">
+                        <h3 class="text-light font-semibold mb-2">Live Classes</h3>
+                        <p class="text-light">Click below to enroll in our comprehensive Django courses.</p>
+                        <form action="{% url 'enroll' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="course_id" value="123">  <!-- Replace 123 with actual course ID -->
+                            <button type="submit" class="bg-primary text-secondary border border-secondary rounded-lg px-4 py-2 mt-2 hover:bg-secondary hover:text-light transition">Enroll Now</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </main>
-
-       
-    </div>
-
-{% endblock content %}
-
+            
+            <script>
+                // Sidebar toggle script for mobile view
+                const sidebar = document.getElementById('sidebar');
+                const openSidebar = document.getElementById('openSidebar');
+                const closeSidebar = document.getElementById('closeSidebar');
+            
+                openSidebar.addEventListener('click', () => {
+                    sidebar.style.transform = 'translateX(0)';
+                });
+            
+                closeSidebar.addEventListener('click', () => {
+                    sidebar.style.transform = 'translateX(-100%)';
+                });
+            </script>
+            {% endblock content %}
+            

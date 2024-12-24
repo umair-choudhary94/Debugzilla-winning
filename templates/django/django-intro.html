@@ -1,0 +1,48 @@
+{% extends "django/base.html" %}
+{% block subcontent %}
+<div class="max-w-4xl mx-auto px-4 py-8 text-light">
+    <!-- What is Django Section -->
+    <h1 class="text-4xl font-bold mb-6 text-secondary">What is Django?</h1>
+    
+    <p class="mb-4">Django is a Python framework that makes it easier to create web sites using Python.</p>
+    
+    <p class="mb-4">Django takes care of the difficult stuff so that you can concentrate on building your web applications.</p>
+    
+    <p class="mb-6">Django emphasizes reusability of components, also referred to as DRY (Don't Repeat Yourself), and comes with ready-to-use features like login system, database connection and CRUD operations (Create Read Update Delete).</p>
+    
+    <div class="bg-[#fffce6] border-l-4 border-secondary p-4 mb-8">
+        <p class="text-primary">Django is especially helpful for database driven websites.</p>
+    </div>
+
+    <!-- How does Django Work Section -->
+    <h2 class="text-3xl font-bold mb-6 text-secondary">How does Django Work?</h2>
+    
+    <p class="mb-4">Django follows the MVT design pattern (Model View Template).</p>
+    
+    <ul class="list-disc pl-6 mb-8 space-y-2">
+        <li class="text-light">Model - The data you want to present, usually data from a database.</li>
+        <li class="text-light">View - A request handler that returns the relevant template and content - based on the request from the user.</li>
+        <li class="text-light">Template - A text file (like an HTML file) containing the layout of the web page, with logic on how to display the data.</li>
+    </ul>
+
+    <!-- Model Section -->
+    <h2 class="text-3xl font-bold mb-6 text-secondary">Model</h2>
+    
+    <p class="mb-4">The model provides data from the database.</p>
+    
+    <p class="mb-4">In Django, the data is delivered as an Object Relational Mapping (ORM), which is a technique designed to make it easier to work with databases.</p>
+    
+    <p class="mb-4">The most common way to extract data from a database is SQL. One problem with SQL is that you have to have a pretty good understanding of the database structure to be able to work with it.</p>
+    
+    <p class="mb-4">Django, with ORM, makes it easier to communicate with the database, without having to write complex SQL statements.</p>
+    <p class="mb-4">The models are usually located in a file called <span class="bg-[#fffce6] text-primary px-2">models.py </span> .</p>
+
+
+    <h2 class="text-3xl font-bold mb-6 text-secondary">View</h2>
+    
+    <p class="mb-4">A view is a function or method that takes HTTP requests as arguments, imports the relevant model(s), and finds out what data to send to the template, and returns the final result.</p>
+    
+    <p class="mb-4">The views are usually located in a file called <span class="bg-[#fffce6] text-primary px-2">views.py</span>.</p>
+</div>
+
+{% endblock subcontent %}

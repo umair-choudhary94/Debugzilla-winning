@@ -12,7 +12,8 @@ urlpatterns = [
     path('web-basics-course/', views.web_basics_course, name='web_basics_course'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('terms-and-conditions/', views.terms_and_conditions, name='terms_and_conditions'),
-    path('django',views.django_doc)
+    path('django',views.django_doc),
+    path('django-introduction',views.django_introduction)
     
     
 ]
