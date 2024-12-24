@@ -13,6 +13,30 @@ def student_dashboard(request):
     return render(request, 'student_dashboard.html')
 
 
+def privacy_policy(request):
+    """
+    View function for the privacy policy page.
+    """
+    return render(request, 'privacy-policy.html')
+
+def terms_and_conditions(request):
+    """
+    View function for the terms and conditions page.
+    """
+    return render(request, 'terms-conditions.html')
+
+def enroll_view(request):
+    """
+    View function for the enroll page.
+    """
+    return render(request, 'enroll.html')
+
+def web_basics_course(request):
+    """
+    View function for the web basics course page.
+    """
+    return render(request, 'web-basics-course.html')
+
 
 def login_view(request):
     """
