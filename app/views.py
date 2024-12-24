@@ -110,3 +110,6 @@ def web_basics_course(request):
     """
     return render(request, 'web-basics-course.html')
 
+
+def django_doc(request):
+    return render(request,'django/base.html')
