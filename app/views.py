@@ -126,3 +126,9 @@ def django_projects(request):
         'count' : count
     }
     return render(request, 'Projects/django-projects.html', context)
+
+def project_detail(request, project_name):
+    project = Project.objects.get(project_name=project_name)
+    return render(request, 'Projects/view-project.html', {'project': project})
+
+
