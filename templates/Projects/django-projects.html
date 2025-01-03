@@ -4,7 +4,7 @@
     <!-- Hero Section -->
     <section id="home" class="bg-primary text-light py-10 min-h-[50vh] flex items-center">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Django 2800+ Projects</h1>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Django {{ count }}+ Projects</h1>
             <p class="text-xl mb-6">World Largest Django Projects Directory</p>
             <p class="text-lg mb-6">Download For Free — Save $5000 (100% off)</p>
 
@@ -22,7 +22,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-12">Start Digging Gold!</h2>
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {% for project in Projects %}
+                                                                {% for project in Projects %}
                 <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
                     <h3 class="text-2xl font-semibold mb-4">{{ project.project_name }}</h3>
                     <p class="text-gray-300 mb-4">{{ project.project_description }}</p>
@@ -30,6 +30,21 @@
                         Download Now
                     </a>
                 </div>
+                {% if forloop.counter == 5 %}
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4240902606648339"
+                     crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-format="fluid"
+                         data-ad-layout-key="-gw-3+1f-3d+2z"
+                         data-ad-client="ca-pub-4240902606648339"
+                         data-ad-slot="8961466421"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                {% endif %}
                 {% endfor %}
                 
                

@@ -120,7 +120,9 @@ def django_introduction(request):
 
 def django_projects(request):
     Projects = Project.objects.all()
+    count = Projects.count()
     context = {
-        'Projects' : Projects
+        'Projects' : Projects,
+        'count' : count
     }
     return render(request, 'Projects/django-projects.html', context)
