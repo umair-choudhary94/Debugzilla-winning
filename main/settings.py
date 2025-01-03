@@ -88,7 +88,7 @@ DATABASES = {
         'USER': "postgres",
         'PASSWORD': "ULgtsgSyyvxvlHRluWZhWzUlwwyZQSWl",
         'HOST': "junction.proxy.rlwy.net",
-        'PORT': "5432",
+        'PORT': "14198",  # Updated port
     }
 }
 
