@@ -14,7 +14,7 @@ urlpatterns = [
     path('terms-and-conditions/', views.terms_and_conditions, name='terms_and_conditions'),
     path('django',views.django_doc),
     path('django-introduction',views.django_introduction),
-    path('django-projects',views.django_projects)
+    path('django-projects/',views.django_projects)
     
     
 ]
