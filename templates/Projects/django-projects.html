@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-light py-10 min-h-[50vh] flex items-center">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Django 2800+ Projects</h1>
+            <p class="text-xl mb-6">World Largest Django Projects Directory</p>
+            <p class="text-lg mb-6">Download For Free — Save $5000 (100% off)</p>
+
+
+            <a href="/enroll">
+                <button class="bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 transform hover:scale-105 pulse">
+                    Get Started
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Start Digging Gold!</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {% for project in Projects %}
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">{{ project.project_name }}</h3>
+                    <p class="text-gray-300 mb-4">{{ project.project_description }}</p>
+                    <a href="{{ project.link }}" class="text-secondary hover:text-secondary-600 transition">
+                        Download Now
+                    </a>
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary">Additional Resources</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Official Documentation</h3>
+                    <p class="text-gray-300 mb-4">The official Django documentation is the best place to start.</p>
+                    <a href="https://docs.djangoproject.com/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Visit Documentation</a>
+                </div>
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Django REST Framework</h3>
+                    <p class="text-gray-300 mb-4">Learn how to build APIs with Django REST Framework.</p>
+                    <a href="https://www.django-rest-framework.org/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Learn More</a>
+                </div>
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Django Packages</h3>
+                    <p class="text-gray-300 mb-4">Discover reusable apps, sites, tools, and more.</p>
+                    <a href="https://djangopackages.org/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Explore Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

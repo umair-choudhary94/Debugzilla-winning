@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from . models import *
 def index(request):
     return render(request, 'design2.html')
 
@@ -116,3 +117,10 @@ def django_doc(request):
 
 def django_introduction(request):
     return render(request,'django/django-intro.html')
+
+def django_projects(request):
+    Projects = Project.objects.all()
+    context = {
+        'Projects' : Projects
+    }
+    return render(request, 'Projects/django-projects.html', context)
