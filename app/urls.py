@@ -17,6 +17,9 @@ urlpatterns = [
     path('django-projects/',views.django_projects),
     path('django-projects/<str:project_name>/',views.project_detail),
     path('web-development-basic/', views.web_development_basic),
-    
+    path('flask/', views.flask),
+    path('python/', views.python),
+    path('database/', views.database),
     path('git-github-basic/', views.git_github_basic),
+    
 ]

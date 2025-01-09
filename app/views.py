@@ -137,4 +137,11 @@ def git_github_basic(request):
 def web_development_basic(request):
     return render(request,'web-development-basic.html')
 
+def flask(request):
+    return render(request,'flask.html')
+def python(request):
+    return render(request,'python.html')
+def database(request):
+    return render(request,'database.html')
+
 
