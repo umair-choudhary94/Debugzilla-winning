@@ -131,4 +131,10 @@ def project_detail(request, project_name):
     project = Project.objects.get(project_name=project_name)
     return render(request, 'Projects/view-project.html', {'project': project})
 
+def git_github_basic(request):
+    return render(request,'git-github-basic.html')
+
+def web_development_basic(request):
+    return render(request,'web-development-basic.html')
+
 

@@ -15,7 +15,8 @@ urlpatterns = [
     path('django',views.django_doc),
     path('django-introduction',views.django_introduction),
     path('django-projects/',views.django_projects),
-    path('django-projects/<str:project_name>/',views.project_detail)
+    path('django-projects/<str:project_name>/',views.project_detail),
+    path('web-development-basic/', views.web_development_basic),
     
-    
+    path('git-github-basic/', views.git_github_basic),
 ]

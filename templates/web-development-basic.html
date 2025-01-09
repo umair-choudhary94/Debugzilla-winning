@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-light py-10 min-h-[50vh] flex items-center">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Django Course Learning Roadmap</h1>
+            <p class="text-xl mb-6">Master Django within 2 months.</p>
+            <p class="text-lg mb-6">Special Offer: <del class="text-red-500">$89</del> <span class="text-green-500">$42.72/month</span> — Save $46.28 (52% off)</p>
+
+
+            <a href="/enroll">
+                <button class="bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 transform hover:scale-105 pulse">
+                    Get Started
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Here's what we will cover in Live Session's</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">1. Python Basics</h3>
+                    <p class="text-gray-300 mb-4">Master Python fundamentals.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Variables and Data Types</li>
+                        <li>Control Structures</li>
+                        <li>Functions and Modules</li>
+                        <li>Error Handling</li>
+                    </ul>
+                </div>
+                <!-- Step 2: Python Advanced -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">2. Advanced Python</h3>
+                    <p class="text-gray-300 mb-4">Build a strong Python foundation.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>OOP Concepts</li>
+                        <li>Decorators and Generators</li>
+                        <li>File Handling</li>
+                        <li>Regular Expressions</li>
+                    </ul>
+                </div>
+                <!-- Step 3: Setting Up Django -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">3. Setting Up Django</h3>
+                    <p class="text-gray-300 mb-4">Get Django ready for development.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Installing Django</li>
+                        <li>Creating a Project</li>
+                        <li>Understanding Project Structure</li>
+                        <li>Starting the Development Server</li>
+                    </ul>
+                </div>
+                <!-- Step 4: Creating Your First App -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">4. Creating Your First App</h3>
+                    <p class="text-gray-300 mb-4">Learn the basics of Django apps.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>What is a Django App?</li>
+                        <li>Creating an App</li>
+                        <li>Connecting App to Project</li>
+                        <li>URLs and Views</li>
+                    </ul>
+                </div>
+                <!-- Step 5: URLs and Views -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">5. URLs and Views</h3>
+                    <p class="text-gray-300 mb-4">Understand how Django handles requests.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Mapping URLs</li>
+                        <li>Function-Based Views</li>
+                        <li>Class-Based Views</li>
+                        <li>Template Rendering</li>
+                    </ul>
+                </div>
+                <!-- Step 6: Templates -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">6. Templates</h3>
+                    <p class="text-gray-300 mb-4">Create dynamic web pages with templates.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Template Syntax</li>
+                        <li>Context Data</li>
+                        <li>Template Inheritance</li>
+                        <li>Static Files</li>
+                    </ul>
+                </div>
+                <!-- Step 7: Models -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">7. Models</h3>
+                    <p class="text-gray-300 mb-4">Work with databases using Django Models.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Defining Models</li>
+                        <li>Understanding Fields</li>
+                        <li>Database Relationships</li>
+                        <li>Database Migrations</li>
+                    </ul>
+                </div>
+                <!-- Step 8: Admin Interface -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">8. Admin Interface</h3>
+                    <p class="text-gray-300 mb-4">Customize the Django Admin for data management.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Using the Django Admin</li>
+                        <li>Registering Models</li>
+                        <li>Customizing Admin Views</li>
+                        <li>Managing Data through Admin</li>
+                    </ul>
+                </div>
+                <!-- Step 9: Forms and Validation -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">9. Forms and Validation</h3>
+                    <p class="text-gray-300 mb-4">Learn how to handle forms and validate user input.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Creating Forms</li>
+                        <li>Form Validation</li>
+                        <li>Handling Form Submissions</li>
+                        <li>CSRF Protection</li>
+                    </ul>
+                </div>
+                <!-- Step 10: User Authentication -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">10. User Authentication</h3>
+                    <p class="text-gray-300 mb-4">Implement user authentication and authorization.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User Registration</li>
+                        <li>Login and Logout</li>
+                        <li>Reset Password</li>
+                        <li>Permission Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Projects we will build together</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Beginner Projects -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">1. To-Do App</h3>
+                    <p class="text-gray-300 mb-4">Build a simple task manager to add, edit, and delete tasks.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Task model with fields for title and status</li>
+                        <li>CRUD operations</li>
+                        <li>Basic form handling</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">2. Blog Application</h3>
+                    <p class="text-gray-300 mb-4">Create a platform for writing, editing, and reading blog posts.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Post model with title, content, and timestamp</li>
+                        <li>Admin interface customization</li>
+                        <li>Pagination for blog listing</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">3. Portfolio Website</h3>
+                    <p class="text-gray-300 mb-4">Showcase personal projects and achievements.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for projects, skills, and testimonials</li>
+                        <li>Responsive design with Bootstrap or Tailwind</li>
+                        <li>Static and dynamic content management</li>
+                    </ul>
+                </div>
+                <!-- Intermediate Projects -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">4. E-Commerce Website</h3>
+                    <p class="text-gray-300 mb-4">Build a shopping platform with cart and checkout features.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User authentication</li>
+                        <li>Product and category models</li>
+                        <li>Payment gateway integration</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">5. Online Polling System</h3>
+                    <p class="text-gray-300 mb-4">Create a system for users to create and vote on polls.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for polls and options</li>
+                        <li>Real-time results display</li>
+                        <li>Authentication for poll creators</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">6. Expense Tracker</h3>
+                    <p class="text-gray-300 mb-4">Monitor and categorize daily expenses.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for expenses, categories, and users</li>
+                        <li>Visualization with charts</li>
+                        <li>Filter and search functionality</li>
+                    </ul>
+                </div>
+                <!-- Advanced Projects -->
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">7. Learning Management System</h3>
+                    <p class="text-gray-300 mb-4">Design a system for managing courses and students.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Models for courses, lessons, and enrollments</li>
+                        <li>Role-based access for students and instructors</li>
+                        <li>Assessment and grading functionality</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">8. Social Media Platform</h3>
+                    <p class="text-gray-300 mb-4">Build a feature-rich social networking site.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User profiles and followers</li>
+                        <li>Post creation and interaction (likes/comments)</li>
+                        <li>Real-time notifications</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">9. AI-Powered Recruitment Platform</h3>
+                    <p class="text-gray-300 mb-4">Leverage AI for resume parsing and candidate ranking.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Document upload and parsing</li>
+                        <li>Skill matching and ranking</li>
+                        <li>ChatGPT integration for HR assistance</li>
+                    </ul>
+                </div>
+                <div class="roadmap-card bg-primary shadow-lg hover:shadow-xl transition duration-300 border border-secondary border-opacity-20 rounded-lg overflow-hidden p-6">
+                    <h3 class="text-2xl font-semibold mb-4">10. SaaS Dashboard</h3>
+                    <p class="text-gray-300 mb-4">Develop a SaaS platform with subscription and analytics.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>User and organization management</li>
+                        <li>Billing and subscription</li>
+                        <li>Data visualization and reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-primary text-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary">Additional Resources</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Official Documentation</h3>
+                    <p class="text-gray-300 mb-4">The official Django documentation is the best place to start.</p>
+                    <a href="https://docs.djangoproject.com/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Visit Documentation</a>
+                </div>
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Django REST Framework</h3>
+                    <p class="text-gray-300 mb-4">Learn how to build APIs with Django REST Framework.</p>
+                    <a href="https://www.django-rest-framework.org/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Learn More</a>
+                </div>
+                <div class="resource-card bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-secondary">Django Packages</h3>
+                    <p class="text-gray-300 mb-4">Discover reusable apps, sites, tools, and more.</p>
+                    <a href="https://djangopackages.org/" target="_blank" class="text-secondary hover:text-secondary-600 transition">Explore Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}
