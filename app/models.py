@@ -16,7 +16,7 @@ class Blog(models.Model):
     publication_datetime = models.DateTimeField(default=datetime.now)
     thumbnail = models.ImageField(upload_to='thumbnailbs', blank=True, null=True, 
                                    help_text="Blog thumbnail image")
-    content = CKEditor5Field('Content', config_name='default', blank=True, null=True)
+    content = CKEditor5Field('Content', config_name='extends', blank=True, null=True)
     author = models.CharField(max_length=255, default='engr umair')
     slug = models.SlugField(default='', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

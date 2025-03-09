@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from . views import *
 urlpatterns = [
     path('', views.index, name='index'),
     path('student/dashboard/', views.student_dashboard, name='student_dashboard'),
@@ -21,5 +21,11 @@ urlpatterns = [
     path('python/', views.python),
     path('database/', views.database),
     path('git-github-basic/', views.git_github_basic),
+
+
+
+    path("blogs/", blogs, name="blogs"),
+    path("blog/<str:slug>/", blog_view, name="blog_view"),
+
     
 ]

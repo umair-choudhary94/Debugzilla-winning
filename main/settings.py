@@ -110,8 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 customColorPalette = [
         {
             'color': 'hsl(4, 90%, 58%)',
@@ -138,6 +136,7 @@ customColorPalette = [
             'label': 'Blue'
         },
     ]
+
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': {
@@ -161,7 +160,7 @@ CKEDITOR_5_CONFIGS = {
                     'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                     'insertTable',
                     ],
-            'shouldNotGroupWhenFull': True
+            'shouldNotGroupWhenFull': False
         },
         'image': {
             'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
@@ -204,7 +203,6 @@ CKEDITOR_5_CONFIGS = {
         }
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

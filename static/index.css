@@ -1,0 +1,74 @@
+:root {
+    --primary-500: #0a65cc !important;
+    --primary-600: #0851a4 !important;
+    --primary-200: #b6d1f0 !important;
+    --primary-100: #cee1f5 !important;
+    --primary-50: #eef5fc !important;
+    --gray-20: #fbfcfe !important;
+  }
+
+  #scrollUp {
+    display: flex;
+    bottom: 20px !important;
+    right: 21.5px !important;
+  }
+
+  .mymap {
+    width: 100%;
+    min-height: 300px;
+    /* border-radius: 12px; */
+  }
+
+  .p-half {
+    padding: 1px;
+  }
+
+  .mapClass {
+    border: 1px solid transparent;
+    margin-top: 15px;
+    border-radius: 4px 0 0 4px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 35px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  #searchInput {
+    font-family: "Roboto";
+    background-color: #fff;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    margin-left: 16px;
+    font-weight: 400;
+    padding: 0 11px 0 13px;
+  }
+
+  #searchInput:focus {
+    border-color: #4d90fe;
+  }
+
+  #searchInput {
+    width: 100%;
+  }
+  @media (max-width: 991px) {
+    .jobsearchBox .fromGroup.banner-select {
+      width: auto !important;
+    }
+    #searchInput {
+      padding-left: 36px !important;
+      margin: 0px !important;
+    }
+  }
+
+  span.select2-container--default .select2-selection--single {
+    border: none !important;
+  }
+
+  span.select2-selection.select2-selection--single {
+    outline: none;
+  }
+
+  .marginleft {
+    margin-left: 10px !important;
+  }

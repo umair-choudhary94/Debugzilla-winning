@@ -3,6 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from . models import *
+from django.shortcuts import get_object_or_404
+from .models import Blog
+
+from django.db.models import Q
 def index(request):
     return render(request, 'design2.html')
 
@@ -144,4 +148,43 @@ def python(request):
 def database(request):
     return render(request,'database.html')
 
+def blogs(request):
+    search_term = request.GET.get('search', '').strip() 
+    categories = request.GET.getlist('category[]')  
+
+    blogs = Blog.objects.all()  
+
+    
+    if search_term:
+        blogs = blogs.filter(Q(title__icontains=search_term) | Q(content__icontains=search_term))
+
+
+    if categories:
+        blogs = blogs.filter(category__in=categories)  
+
+
+    from django.core.paginator import Paginator
+    paginator = Paginator(blogs, 2)  
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        "page_obj": page_obj,
+        'has_next': page_obj.has_next(),
+        'has_previous': page_obj.has_previous(),
+        'num_pages': paginator.num_pages,
+        "blogs_recent": Blog.objects.order_by('-publication_datetime')[:5],
+        'search_term': search_term,
+        'selected_categories': categories,  
+    }
+    return render(request, 'blog.html', context)
+    
+
+def blog_view(request, slug):
+    blog = get_object_or_404(Blog, slug=slug)
+    context = {
+        "blogs_recent": Blog.objects.order_by('-publication_datetime')[:5],
+        'blog' : blog
+    }
+    return render(request, 'view_blog.html',context)
 

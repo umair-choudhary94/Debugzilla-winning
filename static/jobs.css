@@ -1,0 +1,96 @@
+:root {
+    --primary-500: #0A65CC !important;
+    --primary-600: #0851a4 !important;
+    --primary-200: #b6d1f0 !important;
+    --primary-100: #cee1f5 !important;
+    --primary-50: #eef5fc !important;
+    --gray-20: #fbfcfe !important;
+}
+
+.ll-findjob-banner {
+    border-radius: 8px;
+    border: 2px solid var(--primary-500);
+    background: var(--primary-50);
+    box-shadow: 0px 2px 6px 0px rgba(0, 102, 204, 0.12);
+    display: flex;
+    padding: 15px;
+    align-items: flex-start;
+    gap: 16px;
+}
+span.select2-container--default .select2-selection--single {
+    border: none !important;
+}
+
+span.select2-selection.select2-selection--single {
+    outline: none;
+}
+
+.noUi-connect {
+    background: #0066ff;
+}
+
+#priceRangeSlider {
+    height: 8px;
+}
+
+.noUi-horizontal .noUi-handle {
+    height: 16px;
+    width: 16px;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    background: #0066ff;
+    border: 2px solid white;
+}
+
+.noUi-touch-area {
+    background: #0066ff;
+    border-radius: 50%;
+}
+
+.mapboxgl-ctrl {
+    z-index: 2 !important;
+}
+
+.noUi-handle:after,
+.noUi-handle:before {
+    display: none;
+}
+
+#priceRangeSlider .noUi-handle-lower .noUi-tooltip {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    left: -16px;
+    right: auto;
+    bottom: 120%;
+}
+
+#priceRangeSlider .noUi-handle-upper .noUi-tooltip {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    left: auto;
+    right: -40px;
+    bottom: 120%;
+}
+
+#scrollUp {
+    display: flex;
+    bottom: 20px !important;
+    right: 21.5px !important;
+}
+.feature-job .slick-slide {
+    margin-left: 0px !important;
+    margin: 0px 12px !important;
+}
+
+.feature-job.testimonail_active .prev-arrow {
+    left: -60px;
+}
+
+.feature-job.testimonail_active .next-arrow {
+    right: -60px;
+}
+
+            .feature-job .slick-dots {
+        display: none !important;
+    }

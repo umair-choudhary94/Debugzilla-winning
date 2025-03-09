@@ -24,6 +24,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
     path('ads.txt', TemplateView.as_view(template_name="ads.txt", content_type="text/plain")),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
