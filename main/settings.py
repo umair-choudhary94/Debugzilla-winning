@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': "railway",
         'USER': "postgres",
         'PASSWORD': "ULgtsgSyyvxvlHRluWZhWzUlwwyZQSWl",
@@ -240,7 +240,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
 
 # Set MEDIA_URL to Cloudinary
 MEDIA_URL = f"https://res.cloudinary.com/dyrcigea4/"
