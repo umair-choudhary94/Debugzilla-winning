@@ -16,3 +16,5 @@ celery
 redis
 requests
 django-ckeditor-5
+cloudinary
+django-cloudinary-storage

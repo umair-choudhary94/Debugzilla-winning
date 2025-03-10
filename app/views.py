@@ -188,3 +188,15 @@ def blog_view(request, slug):
     }
     return render(request, 'view_blog.html',context)
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import cloudinary.uploader
+
+@csrf_exempt
+def upload_ckeditor_image(request):
+    if request.method == 'POST' and request.FILES.get('upload'):
+        uploaded_file = request.FILES['upload']
+        result = cloudinary.uploader.upload(uploaded_file)
+        return JsonResponse({'url': result['secure_url']})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
