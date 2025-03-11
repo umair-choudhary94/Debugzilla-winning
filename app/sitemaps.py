@@ -17,7 +17,7 @@ class StaticViewSitemap(Sitemap):
     changefreq = "monthly"
 
     def items(self):
-        return ["index", "login"]  # Add your static view names
+        return ["index", "login", "student_dashboard", "django_roadmap", "enroll", "web_basics_course", "privacy_policy", "terms_and_conditions", "django", "django_introduction", "django_projects", "web_development_basic", "flask", "python", "database", "git_github_basic",'blogs']  # Add your static view names
 
     def location(self, item):
         return reverse(item)
