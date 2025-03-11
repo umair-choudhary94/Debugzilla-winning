@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}{{ blog.title }}{% endblock title %}
+{% block og_title %}{{ blog.title }}{% endblock og_title %}
+
+
+
 {% block content %}
 
 <div class="container mx-auto px-4 py-10">

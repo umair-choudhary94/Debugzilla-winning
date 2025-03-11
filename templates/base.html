@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debugzilla - Master Web Development</title>
+    <title>{% block title %}Debugzilla - Master Web Development{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4240902606648339"
      crossorigin="anonymous"></script>
+    <meta property="og:title" content="{% block og_title %}Debugzilla - Master Web Development{% endblock %}">
+    <meta property="og:description" content="Your journey to mastering web development begins here.">
+    
 
      <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLZCLHH813"></script>
