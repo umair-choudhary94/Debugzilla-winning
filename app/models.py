@@ -2,6 +2,7 @@ from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 from datetime import datetime
 from django.utils.text import slugify
+from django.urls import reverse
 # Create your models here.
 class Project(models.Model):
     project_name = models.CharField(max_length=255)
@@ -27,6 +28,8 @@ class Blog(models.Model):
         
     def __str__(self):
         return self.title
+    def get_absolute_url(self):
+        return reverse("blog_view", kwargs={"slug": self.slug})
     
     def save(self, *args, **kwargs):
         if not self.slug:

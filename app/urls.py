@@ -1,6 +1,13 @@
 from django.urls import path
 from . import views
 from . views import *
+from django.contrib.sitemaps.views import sitemap  
+from .sitemaps import BlogSitemap, StaticViewSitemap
+
+sitemaps = {
+    "blog": BlogSitemap(),
+    "static": StaticViewSitemap(),
+}
 urlpatterns = [
     path('', views.index, name='index'),
     path('student/dashboard/', views.student_dashboard, name='student_dashboard'),
@@ -23,7 +30,7 @@ urlpatterns = [
     path('git-github-basic/', views.git_github_basic),
 
 
-
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("blogs/", blogs, name="blogs"),
     path("blog/<str:slug>/", blog_view, name="blog_view"),
     
