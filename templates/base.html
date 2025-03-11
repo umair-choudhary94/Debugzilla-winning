@@ -143,18 +143,26 @@
 <body class="font-sans text-primary bg-primary">
     <header class="bg-primary text-light sticky top-0 z-50 transition-all duration-300" id="header">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-secondary">Debugzilla</a>
+            <a href="/" class="text-2xl font-bold text-secondary">
+                <img src="{% static 'debugzilla-logo.png' %}" alt="Debugzilla" style="width: 180px; height: auto;">
+            </a>
             <div class="md:hidden">
                 <button id="sidebar-toggle" class="text-3xl">☰</button>
             </div>
+            <style>
+                .active {
+                    color: #FEE715;
+                    border-bottom: 2px solid #FEE715;
+                }
+            </style>
             <div class="hidden md:flex space-x-6" id="nav-links">
-                <a href="/" class="hover:text-secondary transition">Home</a>
-                <a href="/#features" class="hover:text-secondary transition">Features</a>
-                <a href="/#courses" class="hover:text-secondary transition">Courses</a>
-                <a href="/#dashboard" class="hover:text-secondary transition">Dashboard</a>
-                <a href="/#testimonials" class="hover:text-secondary transition">Testimonials</a>
-                <a href="/#contact" class="hover:text-secondary transition">Contact</a>
-                <a href="/blogs/" class="hover:text-secondary transition">Blogs</a>
+                <a href="/" class="{% if request.path == '/' %}active{% endif %} hover:text-secondary transition">Home</a>
+                <a href="/#features" class="{% if request.path == '/#features' %}active{% endif %} hover:text-secondary transition">Features</a>
+                <a href="/#courses" class="{% if request.path == '/#courses' %}active{% endif %} hover:text-secondary transition">Courses</a>
+                <a href="/#dashboard" class="{% if request.path == '/#dashboard' %}active{% endif %} hover:text-secondary transition">Dashboard</a>
+                <a href="/#testimonials" class="{% if request.path == '/#testimonials' %}active{% endif %} hover:text-secondary transition">Testimonials</a>
+                <a href="/#contact" class="{% if request.path == '/#contact' %}active{% endif %} hover:text-secondary transition">Contact</a>
+                <a href="/blogs/" class="{% if request.path == '/blogs/' %}active{% endif %} hover:text-secondary transition">Blogs</a>
             </div>
         </nav>
         <div id="mobile-sidebar" class="md:hidden fixed top-0 left-0 w-64 h-screen bg-primary text-light overflow-y-auto transform transition-transform -translate-x-full ease-in-out duration-300" >
