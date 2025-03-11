@@ -26,7 +26,7 @@ urlpatterns = [
 
     path("blogs/", blogs, name="blogs"),
     path("blog/<str:slug>/", blog_view, name="blog_view"),
-    path('ckeditor/upload/', upload_ckeditor_image, name='ckeditor_upload'),
+    
 
     
 ]
