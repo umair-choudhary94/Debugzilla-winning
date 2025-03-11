@@ -35,7 +35,7 @@
                 {% endif %}
 
                 <!-- Blog Content -->
-                <div class="mt-6 text-white  leading-relaxed">
+                <div class="mt-6 text-gray-100  blog-content leading-relaxed">
                     {{ blog.content|safe }}
                 </div>
             </article>
@@ -89,6 +89,65 @@
         block.style.padding = '6px 10px';
     });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const blogContent = document.querySelector(".blog-content");
+
+        if (blogContent) {
+            // Add margin-bottom to paragraphs for better spacing
+            blogContent.querySelectorAll("p").forEach(p => {
+                p.style.marginBottom = "1rem";
+                p.style.lineHeight = "1.8"; // Improve readability
+            });
+
+            // Format bullet points correctly
+            blogContent.querySelectorAll("ul, ol").forEach(list => {
+                list.style.paddingLeft = "1.5rem"; // Add indentation
+                list.style.marginBottom = "1rem"; // Add spacing below lists
+            });
+
+            // Style list items
+            blogContent.querySelectorAll("ul li").forEach(li => {
+                li.style.marginBottom = "0.5rem"; // Space between list items
+                li.style.listStyleType = "disc"; // Ensure proper bullet styling
+            });
+
+            blogContent.querySelectorAll("ol li").forEach(li => {
+                li.style.marginBottom = "0.5rem"; // Space between numbered list items
+                li.style.listStyleType = "decimal"; // Ensure numbered styling
+            });
+
+            // Enhance code block styling
+            blogContent.querySelectorAll("pre").forEach(block => {
+                block.style.background = "#030000";
+                block.style.padding = "10px";
+                block.style.borderRadius = "6px";
+                block.style.overflowX = "auto"; // Allow horizontal scrolling
+                block.style.whiteSpace = "pre-wrap"; // Prevent layout break due to long lines
+                block.style.marginBottom = "1rem"; // Space after code blocks
+            });
+
+            // Make images inside blog content responsive
+            blogContent.querySelectorAll("img").forEach(img => {
+                img.style.maxWidth = "100%";
+                img.style.height = "auto";
+                img.style.borderRadius = "8px";
+                img.style.boxShadow = "0px 2px 10px rgba(0,0,0,0.2)";
+                img.style.margin = "1rem 0"; // Adds space above and below images
+            });
+
+            // Ensure external links open in a new tab
+            blogContent.querySelectorAll("a").forEach(link => {
+                if (link.hostname !== window.location.hostname) {
+                    link.setAttribute("target", "_blank");
+                    link.setAttribute("rel", "noopener noreferrer");
+                }
+            });
+        }
+    });
+</script>
+
 
 
 

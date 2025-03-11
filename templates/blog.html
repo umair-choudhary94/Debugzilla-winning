@@ -4,19 +4,29 @@
 
 
 {% block content %}
-
-<div class="bg-primary py-6 ">
-  <div class="container mx-auto px-4">
-    <div class="flex justify-between items-center text-light">
-      <h6 class="text-lg font-semibold">Blog</h6>
-      <nav class="text-gray-600 text-sm">
-        <a href="/" class="text-light hover:text-gray-800">Home</a>
-        <span class="mx-2">/</span>
-        <span>Blog</span>
-      </nav>
-    </div>
-  </div>
+<div class="moving-heading text-center text-white mt-11">
+    <h1 class="text-4xl" >Explore Our Blog</h1>
+<p class="mt-4 text-gray-400" id="typing-effect"> </p>
 </div>
+<script>
+    var i = 0;
+    var txt = 'Stay updated with the latest insights and trends in the world of web development.';
+    var speed = 30;
+
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("typing-effect").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    typeWriter();
+</script>
+
+
+
+
 
 
 <div class="container mx-auto py-10 px-4">
