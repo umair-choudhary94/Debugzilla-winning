@@ -188,5 +188,8 @@ def blog_view(request, slug):
     }
     return render(request, 'view_blog.html',context)
 
+def python_help(request):
+    return render(request,'python_help.html')
+
 
 

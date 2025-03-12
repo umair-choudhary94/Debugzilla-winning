@@ -28,8 +28,7 @@ urlpatterns = [
     path('python/', views.python, name='python'),
     path('database/', views.database, name='database'),
     path('git-github-basic/', views.git_github_basic, name='git_github_basic'),
-
-
+    path("programming-help/python-programming-assignment-help/", python_help, name="python_help"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("blogs/", blogs, name="blogs"),
     path("blog/<str:slug>/", blog_view, name="blog_view"),
