@@ -56,6 +56,12 @@
                 </form>
             </div>
 
+            <div class="bg-primary border border-secondary shadow-md border-opacity-20 rounded-lg p-6 mt-6">
+                <h2 class="text-lg text-secondary font-semibold mb-4">Get Help in Python Assignments</h2>
+                <p class="text-gray-300">Do you have any college/School assignment to do? </p>
+                <button class="inline-flex border border-secondary items-center bg-primary p-3 rounded text-gray-100 hover:text-secondary-600 transition-colors duration-200 font-semibold mt-4 inline-block" onclick="window.location.href='{% url 'python_help' %}'">Click here for assistance →</button>
+              </div>
+
             <!-- Recent Posts -->
             <div class="bg-primary-300 border border-secondary border-opacity-20 text-white rounded-lg p-4">
                 <h2 class="text-xl font-semibold  mb-3">Recent Posts</h2>
@@ -68,14 +74,28 @@
                             </div>
                             <div>
                                 <span class="text-sm text-gray-500">{{ blog.publication_datetime|date:"F j, Y" }}</span>
-                                <p class="text-gray-300 text-md font-medium truncate w-40">
-                                    {{ blog.description|truncatechars:50 }}
+                                <p class="text-gray-300 text-md font-medium  w-40">
+                                    {{ blog.title }}
                                 </p>
                             </div>
                         </a>
                     </li>
                     {% endfor %}
                 </ul>
+            </div>
+            <div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4240902606648339"
+                    crossorigin="anonymous"></script>
+                <!-- Blog page vertical -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4240902606648339"
+                    data-ad-slot="3875627838"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
         </aside>
