@@ -94,7 +94,7 @@ DATABASES = {
         'USER': "postgres",
         'PASSWORD': "mFdUGvIRalumxUeQqUphVQQlItRudkZh",
         'HOST': "crossover.proxy.rlwy.net",
-        'PORT': "5432",  # Updated port
+        'PORT': "46163",  # Updated port
     }
 }
 
@@ -237,4 +237,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
