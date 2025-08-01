@@ -92,9 +92,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': "railway",
         'USER': "postgres",
-        'PASSWORD': "ULgtsgSyyvxvlHRluWZhWzUlwwyZQSWl",
-        'HOST': "junction.proxy.rlwy.net",
-        'PORT': "14198",  # Updated port
+        'PASSWORD': "mFdUGvIRalumxUeQqUphVQQlItRudkZh",
+        'HOST': "crossover.proxy.rlwy.net",
+        'PORT': "5432",  # Updated port
     }
 }
 
@@ -237,3 +237,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
