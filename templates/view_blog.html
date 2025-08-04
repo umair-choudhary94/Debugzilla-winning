@@ -3,102 +3,647 @@
 {% block title %}{{ blog.title }}{% endblock title %}
 {% block og_title %}{{ blog.title }}{% endblock og_title %}
 
+{% block extra_css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    
+    /* Beautiful CKEditor 5 Content Styles */
+    .blog-content {
+        line-height: 1.75;
+        font-size: 17px;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: #e2e8f0;
+        max-width: none;
+        word-wrap: break-word;
+    }
 
+    /* Stunning Typography Hierarchy */
+    .blog-content h1,
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4,
+    .blog-content h5,
+    .blog-content h6 {
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 2.5rem 0 1.25rem 0;
+        color: #f8fafc;
+        letter-spacing: -0.025em;
+        position: relative;
+    }
+
+    .blog-content h1 { 
+        font-size: 2.5rem; 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-top: 1rem;
+    }
+    
+    .blog-content h2 { 
+        font-size: 2rem; 
+        color: #94a3b8;
+        border-bottom: 2px solid #334155;
+        padding-bottom: 0.5rem;
+    }
+    
+    .blog-content h3 { 
+        font-size: 1.625rem; 
+        color: #cbd5e1;
+        position: relative;
+    }
+    
+    .blog-content h3:before {
+        content: '';
+        position: absolute;
+        left: -1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 1.2em;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 2px;
+    }
+    
+    .blog-content h4 { 
+        font-size: 1.375rem; 
+        color: #e2e8f0;
+        font-weight: 600;
+    }
+    
+    .blog-content h5 { 
+        font-size: 1.125rem; 
+        color: #cbd5e1;
+        font-weight: 600;
+    }
+    
+    .blog-content h6 { 
+        font-size: 1rem; 
+        color: #94a3b8;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Beautiful Paragraphs */
+    .blog-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        color: #cbd5e1;
+        font-weight: 400;
+        text-align: justify;
+        hyphens: auto;
+    }
+
+    .blog-content p:first-of-type {
+        font-size: 1.125rem;
+        color: #e2e8f0;
+        font-weight: 500;
+    }
+
+    /* Stunning Lists */
+    .blog-content ul,
+    .blog-content ol {
+        margin: 1.5rem 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .blog-content ul li {
+        position: relative;
+        margin-bottom: 0.75rem;
+        padding-left: 2rem;
+        color: #cbd5e1;
+        line-height: 1.7;
+    }
+
+    .blog-content ul li:before {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        top: 0.6rem;
+        width: 6px;
+        height: 6px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+    }
+
+    .blog-content ol {
+        counter-reset: custom-counter;
+    }
+
+    .blog-content ol li {
+        position: relative;
+        margin-bottom: 0.75rem;
+        padding-left: 2.5rem;
+        color: #cbd5e1;
+        line-height: 1.7;
+        counter-increment: custom-counter;
+    }
+
+    .blog-content ol li:before {
+        content: counter(custom-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Nested lists */
+    .blog-content ul ul,
+    .blog-content ol ol,
+    .blog-content ul ol,
+    .blog-content ol ul {
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+    }
+
+    .blog-content ul ul li:before {
+        background: linear-gradient(135deg, #94a3b8, #64748b);
+        width: 4px;
+        height: 4px;
+    }
+
+    /* Gorgeous Links */
+    .blog-content a {
+        color: #60a5fa;
+        text-decoration: none;
+        position: relative;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .blog-content a:hover {
+        background: linear-gradient(135deg, #93c5fd, #60a5fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transform: translateY(-1px);
+    }
+
+    .blog-content a:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        transition: width 0.3s ease;
+        border-radius: 1px;
+    }
+
+    .blog-content a:hover:after {
+        width: 100%;
+    }
+
+    /* External link indicator */
+    .blog-content a[target="_blank"]:after {
+        content: ' ↗';
+        font-size: 0.75em;
+        opacity: 0.7;
+        margin-left: 2px;
+    }
+
+    /* Stunning Images */
+    .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        margin: 2rem 0;
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-content img:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Beautiful Figures */
+    .blog-content figure {
+        margin: 2.5rem 0;
+        text-align: center;
+        background: rgba(30, 41, 59, 0.3);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .blog-content figure img {
+        margin: 0 auto 1rem auto;
+        border-radius: 8px;
+    }
+
+    .blog-content figcaption {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        font-style: italic;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    /* Premium Code Blocks */
+    .blog-content pre {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+        border: 1px solid #334155;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+        margin: 2rem 0 !important;
+        overflow-x: auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    }
+
+    .blog-content pre:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        border-radius: 12px 12px 0 0;
+    }
+
+    .blog-content code {
+        background: rgba(30, 41, 59, 0.8);
+        color: #fbbf24;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .blog-content pre code {
+        background: transparent;
+        padding: 0;
+        color: #e2e8f0;
+        border: none;
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    /* Elegant Blockquotes */
+    .blog-content blockquote {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+        margin: 2rem 0;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+        border-radius: 0 12px 12px 0;
+        font-style: italic;
+        color: #e2e8f0;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+    }
+
+    .blog-content blockquote:before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 1rem;
+        font-size: 3rem;
+        color: #667eea;
+        opacity: 0.3;
+        font-family: Georgia, serif;
+    }
+
+    .blog-content blockquote p {
+        margin: 0;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        font-weight: 500;
+    }
+
+    /* Beautiful Tables */
+    .blog-content table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .blog-content th,
+    .blog-content td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        color: #e2e8f0;
+    }
+
+    .blog-content th {
+        background: linear-gradient(135deg, #374151, #4b5563);
+        font-weight: 600;
+        color: #f8fafc;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .blog-content tr:last-child td {
+        border-bottom: none;
+    }
+
+    .blog-content tr:hover td {
+        background: rgba(148, 163, 184, 0.05);
+    }
+
+    /* Stylish Horizontal Rules */
+    .blog-content hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+        margin: 3rem 0;
+        border-radius: 1px;
+    }
+
+    /* Enhanced Text Formatting */
+    .blog-content strong,
+    .blog-content b {
+        font-weight: 700;
+        color: #f1f5f9;
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .blog-content em,
+    .blog-content i {
+        font-style: italic;
+        color: #cbd5e1;
+    }
+
+    .blog-content u {
+        text-decoration: none;
+        background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+        background-size: 100% 2px;
+        background-position: 0 100%;
+        background-repeat: no-repeat;
+    }
+
+    .blog-content s,
+    .blog-content del {
+        text-decoration: line-through;
+        color: #64748b;
+        opacity: 0.7;
+    }
+
+    /* Text alignment classes */
+    .blog-content .text-center { text-align: center; }
+    .blog-content .text-right { text-align: right; }
+    .blog-content .text-left { text-align: left; }
+    .blog-content .text-justify { text-align: justify; }
+
+    /* Media embeds */
+    .blog-content .media {
+        margin: 2rem 0;
+        text-align: center;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .blog-content iframe {
+        max-width: 100%;
+        border-radius: 12px;
+        border: none;
+    }
+
+    /* CKEditor specific classes */
+    .blog-content .image {
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    .blog-content .image-style-align-left {
+        float: left;
+        margin: 0 2rem 1rem 0;
+        max-width: 45%;
+    }
+
+    .blog-content .image-style-align-right {
+        float: right;
+        margin: 0 0 1rem 2rem;
+        max-width: 45%;
+    }
+
+    .blog-content .image-style-align-center {
+        display: block;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    /* Copy button styling */
+    .code-block-wrapper {
+        position: relative;
+    }
+
+    .copy-button {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        background: linear-gradient(135deg, #374151, #4b5563) !important;
+        color: #e5e7eb !important;
+        border: 1px solid rgba(148, 163, 184, 0.2) !important;
+        padding: 6px 12px !important;
+        border-radius: 6px !important;
+        font-size: 11px !important;
+        cursor: pointer !important;
+        opacity: 0.8 !important;
+        transition: all 0.2s ease !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-weight: 500 !important;
+        backdrop-filter: blur(10px);
+        z-index: 10;
+    }
+
+    .copy-button:hover {
+        opacity: 1 !important;
+        background: linear-gradient(135deg, #4b5563, #6b7280) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .copy-button.copied {
+        background: linear-gradient(135deg, #10b981, #059669) !important;
+        color: white !important;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .blog-content {
+            font-size: 16px;
+        }
+        
+        .blog-content h1 { font-size: 2rem; }
+        .blog-content h2 { font-size: 1.75rem; }
+        .blog-content h3 { font-size: 1.5rem; }
+        
+        .blog-content .image-style-align-left,
+        .blog-content .image-style-align-right {
+            float: none;
+            max-width: 100%;
+            margin: 1.5rem 0;
+        }
+        
+        .blog-content pre {
+            padding: 1rem !important;
+        }
+        
+        .blog-content table {
+            font-size: 0.875rem;
+        }
+        
+        .blog-content th,
+        .blog-content td {
+            padding: 0.75rem;
+        }
+    }
+
+    /* Scrollbar styling for code blocks */
+    .blog-content pre::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .blog-content pre::-webkit-scrollbar-track {
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 4px;
+    }
+
+    .blog-content pre::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 4px;
+    }
+
+    .blog-content pre::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(90deg, #764ba2, #667eea);
+    }
+
+    /* Reading progress indicator */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        z-index: 1000;
+        transition: width 0.1s ease;
+    }
+</style>
+{% endblock extra_css %}
 
 {% block content %}
+
+<!-- Reading Progress Bar -->
+<div class="reading-progress"></div>
 
 <div class="container mx-auto px-4 py-10">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Blog Content -->
         <div class="md:col-span-2">
-            <article class="bg-primary-300 border border-secondary border-opacity-20 text-white rounded-lg p-6">
-                <h1 class="text-3xl font-bold text-white mb-4">
-                    {{ blog.title }}
-                </h1>
-                
-                <div class="flex items-center space-x-4 text-gray-600 text-sm">
-                    <span class="font-semibold">{{ blog.author }}</span>
-                    <span>•</span>
-                    <span class="flex items-center">
-                        <i class="ph-calendar-blank mr-1"></i>
-                        {{ blog.publication_datetime|date:"M d, Y" }}
-                    </span>
-                </div>
+            <article class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border border-slate-600 border-opacity-30 text-white rounded-2xl p-8 shadow-2xl">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4 leading-tight">
+                        {{ blog.title }}
+                    </h1>
+                    
+                    <div class="flex items-center space-x-4 text-slate-400 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                {{ blog.author|first|upper }}
+                            </div>
+                            <span class="font-semibold text-slate-300">{{ blog.author }}</span>
+                        </div>
+                        <span class="text-slate-500">•</span>
+                        <span class="flex items-center">
+                            <i class="ph-calendar-blank mr-2"></i>
+                            {{ blog.publication_datetime|date:"M d, Y" }}
+                        </span>
+                    </div>
+                </header>
 
-                {% comment %} <!-- Blog Thumbnail -->
-                {% if blog.thumbnail %}
-                <div class="mt-6">
-                    <img src="{{ blog.thumbnail.url }}" alt="Blog Thumbnail"
-                         class="w-full h-80 object-cover rounded-lg shadow-md">
-                </div>
-                {% endif %} {% endcomment %}
-
-                {% comment %} <div class="mt-6">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4240902606648339"
-                        crossorigin="anonymous"></script>
-                    <!-- Blog page vertical -->
-                    <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-client="ca-pub-4240902606648339"
-                        data-ad-slot="3875627838"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div> {% endcomment %}
-
-                <!-- Blog Content -->
-                <div class="mt-6 text-gray-100  blog-content leading-relaxed">
+                <!-- Blog Content with stunning styling -->
+                <div class="blog-content">
                     {{ blog.content|safe }}
                 </div>
             </article>
         </div>
 
-        <!-- Sidebar -->
+        <!-- Enhanced Sidebar -->
         <aside class="md:col-span-1 space-y-6">
             
             <!-- Search Blog -->
-            <div class="bg-primary-300 border border-secondary border-opacity-20 text-white rounded-lg p-4">
-                <h2 class="text-xl font-semibold  mb-3">Search the Blog</h2>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600 border-opacity-30 text-white rounded-2xl p-6 shadow-xl">
+                <h2 class="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Search the Blog</h2>
                 <form action="/blogs/" method="GET" class="flex">
-                    <input type="text" placeholder="Search" name="search"
-                           class="w-full px-4 py-2 border rounded-l-lg focus:ring focus:ring-primary-500">
-                    <button class="bg-secondary text-white px-4 py-2 rounded-r-lg">
-                        🔍
+                    <input type="text" placeholder="Search articles..." name="search"
+                           class="flex-1 px-4 py-3 bg-slate-700 border border-slate-600 rounded-l-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-slate-400 transition-all">
+                    <button class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-r-xl hover:shadow-lg transition-all duration-300 hover:scale-105">
+                        <i class="ph-magnifying-glass"></i>
                     </button>
                 </form>
             </div>
 
-            <div class="bg-primary border border-secondary shadow-md border-opacity-20 rounded-lg p-6 mt-6">
-                <h2 class="text-lg text-secondary font-semibold mb-4">Get Help in Python Assignments</h2>
-                <p class="text-gray-300">Do you have any college/School assignment to do? </p>
-                <button class="inline-flex border border-secondary items-center bg-primary p-3 rounded text-gray-100 hover:text-secondary-600 transition-colors duration-200 font-semibold mt-4 inline-block" onclick="window.location.href='{% url 'python_help' %}'">Click here for assistance →</button>
-              </div>
+            <!-- Python Help Section -->
+            <div class="bg-gradient-to-br from-emerald-800 to-emerald-700 border border-emerald-600 border-opacity-30 rounded-2xl p-6 shadow-xl">
+                <h2 class="text-xl font-bold text-emerald-100 mb-4">Get Help in Python Assignments</h2>
+                <p class="text-emerald-200 mb-6 text-sm leading-relaxed">Need assistance with your college or school Python assignments? We're here to help!</p>
+                <button class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-3 px-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold" onclick="window.location.href='{% url 'python_help' %}'">
+                    Get Assistance →
+                </button>
+            </div>
 
             <!-- Recent Posts -->
-            <div class="bg-primary-300 border border-secondary border-opacity-20 text-white rounded-lg p-4">
-                <h2 class="text-xl font-semibold  mb-3">Recent Posts</h2>
-                <ul class="space-y-4">
-                    {% for blog in blogs_recent %}
-                    <li>
-                        <a href="{% url 'blog_view' blog.slug %}" class="flex items-center space-x-4 hover:text-primary-500">
-                            {% comment %} <div class="w-16 h-16 overflow-hidden rounded-lg shadow-md">
-                                <img src="{{ blog.thumbnail.url }}" alt="" class="w-full h-full object-cover">
-                            </div> {% endcomment %}
-                            <div>
-                                <span class="text-sm text-gray-500">{{ blog.publication_datetime|date:"F j, Y" }}</span>
-                                <p class="text-gray-300 text-md font-medium  ">
-                                    {{ blog.title }}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600 border-opacity-30 text-white rounded-2xl p-6 shadow-xl">
+                <h2 class="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Recent Posts</h2>
+                <div class="space-y-4">
+                    {% for recent_blog in blogs_recent %}
+                    <a href="{% url 'blog_view' recent_blog.slug %}" class="block group">
+                        <div class="p-4 rounded-xl bg-slate-700/50 border border-slate-600/30 hover:bg-slate-600/50 transition-all duration-300 hover:shadow-lg hover:border-blue-500/30">
+                            <span class="text-xs text-slate-400 block mb-1">{{ recent_blog.publication_datetime|date:"F j, Y" }}</span>
+                            <p class="text-slate-200 text-sm font-medium leading-snug group-hover:text-blue-300 transition-colors line-clamp-2">
+                                {{ recent_blog.title }}
+                            </p>
+                        </div>
+                    </a>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
-            <div>
+
+            <!-- Advertisement -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600 border-opacity-30 rounded-2xl p-6 shadow-xl">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4240902606648339"
                     crossorigin="anonymous"></script>
                 <!-- Blog page vertical -->
@@ -118,72 +663,107 @@
 </div>
 
 <script>
-    const codeBlocks = document.querySelectorAll('pre');
-    codeBlocks.forEach(block => {
-        block.style.background = '#030000';
-        block.style.padding = '6px 10px';
-    });
-</script>
+document.addEventListener("DOMContentLoaded", function () {
+    const blogContent = document.querySelector(".blog-content");
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const blogContent = document.querySelector(".blog-content");
-
-        if (blogContent) {
-            // Add margin-bottom to paragraphs for better spacing
-            blogContent.querySelectorAll("p").forEach(p => {
-                p.style.marginBottom = "1rem";
-                p.style.lineHeight = "1.8"; // Improve readability
-            });
-
-            // Format bullet points correctly
-            blogContent.querySelectorAll("ul, ol").forEach(list => {
-                list.style.paddingLeft = "1.5rem"; // Add indentation
-                list.style.marginBottom = "1rem"; // Add spacing below lists
-            });
-
-            // Style list items
-            blogContent.querySelectorAll("ul li").forEach(li => {
-                li.style.marginBottom = "0.5rem"; // Space between list items
-                li.style.listStyleType = "disc"; // Ensure proper bullet styling
-            });
-
-            blogContent.querySelectorAll("ol li").forEach(li => {
-                li.style.marginBottom = "0.5rem"; // Space between numbered list items
-                li.style.listStyleType = "decimal"; // Ensure numbered styling
-            });
-
-            // Enhance code block styling
-            blogContent.querySelectorAll("pre").forEach(block => {
-                block.style.background = "#030000";
-                block.style.padding = "10px";
-                block.style.borderRadius = "6px";
-                block.style.overflowX = "auto"; // Allow horizontal scrolling
-                block.style.whiteSpace = "pre-wrap"; // Prevent layout break due to long lines
-                block.style.marginBottom = "1rem"; // Space after code blocks
-            });
-
-            // Make images inside blog content responsive
-            blogContent.querySelectorAll("img").forEach(img => {
-                img.style.maxWidth = "100%";
-                img.style.height = "auto";
-                img.style.borderRadius = "8px";
-                img.style.boxShadow = "0px 2px 10px rgba(0,0,0,0.2)";
-                img.style.margin = "1rem 0"; // Adds space above and below images
-            });
-
-            // Ensure external links open in a new tab
-            blogContent.querySelectorAll("a").forEach(link => {
-                if (link.hostname !== window.location.hostname) {
-                    link.setAttribute("target", "_blank");
-                    link.setAttribute("rel", "noopener noreferrer");
-                }
+    if (blogContent) {
+        // Reading progress indicator
+        const progressBar = document.querySelector('.reading-progress');
+        if (progressBar) {
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.pageYOffset / totalHeight) * 100;
+                progressBar.style.width = progress + '%';
             });
         }
-    });
+
+        // Ensure external links open in a new tab
+        blogContent.querySelectorAll("a").forEach(link => {
+            if (link.hostname && link.hostname !== window.location.hostname) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
+        });
+
+        // Enhanced copy button for code blocks
+        blogContent.querySelectorAll("pre").forEach(block => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-block-wrapper';
+            wrapper.style.position = 'relative';
+            block.parentNode.insertBefore(wrapper, block);
+            wrapper.appendChild(block);
+
+            const copyButton = document.createElement('button');
+            copyButton.innerHTML = '<i class="ph-copy"></i> Copy';
+            copyButton.className = 'copy-button';
+
+            copyButton.addEventListener('click', async () => {
+                const code = block.textContent;
+                try {
+                    await navigator.clipboard.writeText(code);
+                    copyButton.innerHTML = '<i class="ph-check"></i> Copied!';
+                    copyButton.classList.add('copied');
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="ph-copy"></i> Copy';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy code: ', err);
+                }
+            });
+
+            wrapper.appendChild(copyButton);
+        });
+
+        // Smooth scroll for anchor links
+        blogContent.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Image lazy loading with intersection observer
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.style.opacity = '1';
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            blogContent.querySelectorAll("img").forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease';
+                imageObserver.observe(img);
+            });
+        }
+
+        // Clear floats after aligned images
+        blogContent.querySelectorAll(".image-style-align-left, .image-style-align-right").forEach(element => {
+            const clearDiv = document.createElement('div');
+            clearDiv.style.clear = 'both';
+            clearDiv.style.height = '1px';
+            element.parentNode.insertBefore(clearDiv, element.nextSibling);
+        });
+
+        // Add table responsiveness
+        blogContent.querySelectorAll("table").forEach(table => {
+            const wrapper = document.createElement('div');
+            wrapper.style.overflowX = 'auto';
+            wrapper.style.margin = '2rem 0';
+            wrapper.style.borderRadius = '12px';
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        });
+    }
+});
 </script>
-
-
-
 
 {% endblock content %}
