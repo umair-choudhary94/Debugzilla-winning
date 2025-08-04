@@ -26,15 +26,15 @@
                     </span>
                 </div>
 
-                <!-- Blog Thumbnail -->
+                {% comment %} <!-- Blog Thumbnail -->
                 {% if blog.thumbnail %}
                 <div class="mt-6">
                     <img src="{{ blog.thumbnail.url }}" alt="Blog Thumbnail"
                          class="w-full h-80 object-cover rounded-lg shadow-md">
                 </div>
-                {% endif %}
+                {% endif %} {% endcomment %}
 
-                <div class="mt-6">
+                {% comment %} <div class="mt-6">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4240902606648339"
                         crossorigin="anonymous"></script>
                     <!-- Blog page vertical -->
@@ -47,7 +47,7 @@
                     <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
-                </div>
+                </div> {% endcomment %}
 
                 <!-- Blog Content -->
                 <div class="mt-6 text-gray-100  blog-content leading-relaxed">
@@ -84,12 +84,12 @@
                     {% for blog in blogs_recent %}
                     <li>
                         <a href="{% url 'blog_view' blog.slug %}" class="flex items-center space-x-4 hover:text-primary-500">
-                            <div class="w-16 h-16 overflow-hidden rounded-lg shadow-md">
+                            {% comment %} <div class="w-16 h-16 overflow-hidden rounded-lg shadow-md">
                                 <img src="{{ blog.thumbnail.url }}" alt="" class="w-full h-full object-cover">
-                            </div>
+                            </div> {% endcomment %}
                             <div>
                                 <span class="text-sm text-gray-500">{{ blog.publication_datetime|date:"F j, Y" }}</span>
-                                <p class="text-gray-300 text-md font-medium  w-40">
+                                <p class="text-gray-300 text-md font-medium  ">
                                     {{ blog.title }}
                                 </p>
                             </div>

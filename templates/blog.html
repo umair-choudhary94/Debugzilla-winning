@@ -35,11 +35,11 @@
       {% if page_obj %}
         {% for blog in page_obj %}
           <div class="bg-primary border border-secondary border-opacity-20 rounded-lg overflow-hidden mb-6 flex flex-col md:flex-row">
-            <div class="w-full md:w-1/3">
+            {% comment %} <div class="w-full md:w-1/3">
               <a href='/blog/{{ blog.slug }}/'>
                 <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}" class="w-full h-64 object-cover">
               </a>
-            </div>
+            </div> {% endcomment %}
             <div class="w-full md:w-2/3 p-6">
               <p class="text-gray-200 text-sm">{{ blog.publication_datetime }}</p>
               <h4 class="text-xl font-semibold mt-2">
@@ -75,7 +75,7 @@
           {% for blog in blogs_recent %}
             <li class="mb-4">
               <a href="{% url 'blog_view' blog.slug %}" class="flex items-center space-x-4">
-                <img src="{{ blog.thumbnail.url }}" class="w-16 h-16 object-cover rounded-lg">
+                {% comment %} <img src="{{ blog.thumbnail.url }}" class="w-16 h-16 object-cover rounded-lg"> {% endcomment %}
                 <div>
                   <p class="text-gray-500 text-sm">{{ blog.publication_datetime|date:"F j, Y" }}</p>
                   <p class="text-gray-200 font-semibold text-light">{{ blog.title }}</p>
