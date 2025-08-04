@@ -15,8 +15,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=500, help_text="A brief description or summary of the blog post")
     publication_datetime = models.DateTimeField(default=datetime.now)
-    thumbnail = models.ImageField(upload_to='thumbnailbs', blank=True, null=True, 
-                                   help_text="Blog thumbnail image")
+    # thumbnail = models.ImageField(upload_to='thumbnailbs', blank=True, null=True, 
+    #                                help_text="Blog thumbnail image")
     content = CKEditor5Field('Content', config_name='extends', blank=True, null=True)
     author = models.CharField(max_length=255, default='engr umair')
     slug = models.SlugField(default='', blank=True)
